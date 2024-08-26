@@ -41,7 +41,7 @@ export default function Home() {
         {
             notes.length>0 && 
             <div className="mt-10">
-                <div className="grid auto-rows-auto grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">{notesElements}</div>
+                <div className="grid auto-rows-auto grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">{notesElements}</div>
                 <div className="mt-10 text-center">
                     <button onClick={handleDeleteNotes} className="bg-[#cd2121] border-[0.01rem] border-transparent hover:border-[#b5b4b4] rounded-md p-2 font-medium">DELETE ALL NOTES</button>
                 </div>

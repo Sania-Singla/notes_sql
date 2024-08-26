@@ -1,4 +1,4 @@
-import { pool } from "./server.js";
+import { pool } from "./database.js";
 
 const get_notes = async (req,res) => {
     try {
@@ -12,6 +12,7 @@ const get_notes = async (req,res) => {
 const create_note = async (req,res) => {
     const {title,content} = req.body;
     try {
+        if(!title || !content) return res.status(400).json({message:"title and content are required."}); 
         const [result] = await pool.query("insert into notes (title,content) values(?,?)",[title,content]);
         return res.status(200).json({id:result.insertId});
     } catch (err) {
@@ -22,6 +23,7 @@ const create_note = async (req,res) => {
 const get_note = async (req,res) => {
     const {id} = req.params;
     try {
+        if(!id) return res.status(400).json({message:"id is missing."}); 
         const [result] = await pool.query("select * from notes where id=?",[id]);
         return res.status(200).json(result[0]);
     } catch (err) {
@@ -41,6 +43,7 @@ const delete_all_notes = async (req,res) => {
 const delete_note = async (req,res) => {
     const {id} = req.params;
     try {
+        if(!id) return res.status(400).json({message:"id is missing."}); 
         await pool.query("delete from notes where id=?",[id]);
         return res.status(200).json({message:"note deleted successfully!!"});
     } catch (err) {
