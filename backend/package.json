@@ -12,9 +12,9 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "sania",
   "license": "ISC",
-  "description": "",
+  "description": "this is the notes app",
   "devDependencies": {
     "nodemon": "^3.1.4"
   }
