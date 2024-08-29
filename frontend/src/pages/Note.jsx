@@ -7,6 +7,7 @@ export default function Note() {
   const [note,setNote] = useState({});
   const [editing,setEditing] = useState(false);
   const [disabled,setDisabled] = useState(false);
+  const [loading,setLoading] = useState(true);
   const navigate = useNavigate();
   const [inputs,setInputs] = useState({
     title:"",
@@ -20,14 +21,17 @@ export default function Note() {
 
   useEffect(() => {
     async function getNote() {
-      const note = await notesServices.getNote(id);
-      if(note) {
-        setInputs({title:note.title,content:note.content});
-        setNote(note);
+      setLoading(true);
+      const data = await notesServices.getNote(id);
+      if(data && data.message!=="NOTE_NOT_FOUND" && data.message!=="INVALID_ID") {
+        setInputs({title:data.title,content:data.content});
+        setNote(data);
       }
+      console.log("note",note);
+      setLoading(false);
     }
     getNote();
-  },[])
+  },[id])
 
   async function handleDeleteNote() {
     const res = await notesServices.deleteNote(id);
@@ -54,7 +58,8 @@ export default function Note() {
     setEditing(false);
   }
    
-  if(note) return (
+  if(loading) return ( <div>loading...</div> )
+  else if(!loading && Object.keys(note).length) return (   
     <div className="bg-black min-h-screen p-4">
       <div className="relative bg-[#fbc9c9] rounded-lg p-4">
       {
@@ -95,5 +100,8 @@ export default function Note() {
         </div>
       </div>
     </div>
+  )
+  else return (
+    <div>note not found</div>
   )
 }

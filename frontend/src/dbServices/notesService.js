@@ -31,7 +31,7 @@ class NotesServices {
             const data = await res.json();
             console.log(data);
     
-            if(res.ok) {
+            if(res.ok || res.status===400) {
                 return data;
             }
             else
