@@ -18,7 +18,7 @@ export async function connect_db () {  // function is returning a response so sh
             //becuase it is returning a promise so it wont throw error until tested via query or some other way like 👇
             // Test the connection
             const connection = await pool.getConnection();
-            console.log("Connected to the sql database successfully. ");
+            console.log(`Connected to the sql database successfully, host: ${connection.config.host}`);
             connection.release(); // Release the connection back to the pool
         } 
         else if (process.env.DATABASE_TYPE==="mongodb") 
