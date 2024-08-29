@@ -1,5 +1,5 @@
 import mysql from "mysql2";
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 export let pool;
 
 //⭐⭐so instead of connecting to the db everytime when querying we create a pool of all the connections similar to what we did in the db/connection file in tweettube (we got a object where .connection was a property)
@@ -21,11 +21,11 @@ export async function connect_db () {  // function is returning a response so sh
             console.log("Connected to the sql database successfully. ");
             connection.release(); // Release the connection back to the pool
         } 
-        // else if (process.env.DATABASE_TYPE==="mongodb") 
-        // {
-        //     const connectionInstance = await mongoose.connect(url);
-        //     console.log(`Connected to the mongodb database successfully, host: ${connectionInstance.connection.host}`);
-        // }
+        else if (process.env.DATABASE_TYPE==="mongodb") 
+        {
+            const connectionInstance = await mongoose.connect(`${process.env.MONGODB_URL}${process.env.MONGODB_NAME}`);
+            console.log(`Connected to the mongodb database successfully, host: ${connectionInstance.connection.host}`);
+        }
         else 
         {
             throw new Error('Unsupported database type');

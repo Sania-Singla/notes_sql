@@ -1,41 +1,41 @@
-import { object } from "./main.js";
+import { object } from "../db/main.js";
 
 const get_notes = async (req,res) => {
-    const result = await object.get_all_notes();
+    const result = await object.get_all_notes(res);
     return res.status(200).json(result);
 }
 
 const create_note = async (req,res) => {
     const {title,content} = req.body;
     if(!title || !content) return res.status(400).json({message:"title and content are required."}); 
-    const resultId = await object.create_a_note(title,content);
-    return res.status(200).json({id:resultId});
+    const result = await object.create_a_note(res,title,content);
+    return res.status(200).json(result);
 }
 
 const get_note = async (req,res) => {
     const {id} = req.params;
     if(!id) return res.status(400).json({message:"id is missing."}); 
-    const result = await object.get_a_note(id);
+    const result = await object.get_a_note(res,id);
     return res.status(200).json(result);
 }
 
 const delete_all_notes = async (req,res) => {
-    await object.delete_all_notes();
+    await object.delete_all_notes(res);
     return res.status(200).json({message:"all notes deleted!!"});
 }
 
 const delete_note = async (req,res) => {
     const {id} = req.params;
     if(!id) return res.status(400).json({message:"id is missing."}); 
-    await object.delete_a_note(id);
+    await object.delete_a_note(res,id);
     return res.status(200).json({message:"note deleted successfully!!"});
 }
 
 const edit_note = async (req,res) => {
     const {id} = req.params;
     const {title,content} = req.body;
-    await object.edit_a_note(title,content,id);
-    const result = await object.get_a_note(id);
+    await object.edit_a_note(res,title,content,id);
+    const result = await object.get_a_note(res,id);
     return res.status(200).json(result);
 }
 

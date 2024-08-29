@@ -3,9 +3,7 @@ import { RouterProvider } from 'react-router-dom'
 import { createBrowserRouter,createRoutesFromElements,Route } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
-import Home from './pages/Home.jsx'
-import Note from './pages/Note.jsx'
-import Form from './pages/Form.jsx'
+import { Home, Form, Note } from "./pages";
 
 const router = createBrowserRouter(
     createRoutesFromElements(

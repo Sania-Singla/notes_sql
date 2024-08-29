@@ -9,3 +9,6 @@ create table if NOT EXISTS notes (
     content TEXT NOT NULL,
     createdAt TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+alter table notes
+rename column id to _id;  -- due to mongodb

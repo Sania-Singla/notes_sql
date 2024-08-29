@@ -8,7 +8,7 @@ import {
     delete_all_notes ,
     delete_note,
     edit_note,
-    } from "./notesController.js";
+    } from "../controllers/notesController.js";
 
 notesRouter.route("/")
 .get(get_notes)

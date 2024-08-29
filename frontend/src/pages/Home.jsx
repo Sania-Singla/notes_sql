@@ -20,14 +20,15 @@ export default function Home() {
         const res = await notesServices.deleteNotes();
         if(res) {
             setNotes([]);
+            console.log(notes);
         }
     }
 
     const notesElements = notes?.map(note=>(
-        <div key={note.id} className="bg-[#fbc9c9] border-[0.01rem] border-black rounded-xl p-4 text-center shadow-sm shadow-black">
+        <div key={note._id} className="bg-[#fbc9c9] border-[0.01rem] border-black rounded-xl p-4 text-center shadow-sm shadow-black">
             <div className="text-2xl text-black font-medium">{note.title}</div>
             <div className="mt-6">
-                <button onClick={()=>navigate(`/note/${note.id}`)} className="bg-[#cd2121] rounded-lg py-1 px-2 text-lg shadow-md shadow-black hover:border-[#b5b4b4] border-transparent border-[0.01rem] font-medium">get the note</button>
+                <button onClick={()=>navigate(`/note/${note._id}`)} className="bg-[#cd2121] rounded-lg py-1 px-2 text-lg shadow-md shadow-black hover:border-[#b5b4b4] border-transparent border-[0.01rem] font-medium">get the note</button>
             </div>
         </div>
     ))

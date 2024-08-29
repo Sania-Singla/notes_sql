@@ -115,7 +115,7 @@ class NotesServices {
             })
     
             const data = await res.json();
-            console.log(data);
+            console.log("data",data);
     
             if(res.ok) {
                 return data;

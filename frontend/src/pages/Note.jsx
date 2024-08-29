@@ -20,7 +20,7 @@ export default function Note() {
 
   useEffect(() => {
     async function getNote() {
-      const note = await notesServices.getNote(Number(id));
+      const note = await notesServices.getNote(id);
       if(note) {
         setInputs({title:note.title,content:note.content});
         setNote(note);
@@ -30,7 +30,7 @@ export default function Note() {
   },[])
 
   async function handleDeleteNote() {
-    const res = await notesServices.deleteNote(Number(id));
+    const res = await notesServices.deleteNote(id);
     if(res) {
       navigate("/");
     }
@@ -43,7 +43,7 @@ export default function Note() {
 
   async function handleEditNote(e) {
     e.preventDefault();
-    const note = await notesServices.editNote(Number(id),inputs);
+    const note = await notesServices.editNote(id,inputs);
     if(note) {
       setEditing(false);
     }
