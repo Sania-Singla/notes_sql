@@ -1,3 +1,3 @@
-# a simple full stack app to manage your daily notes
-<h2>uses sql database</h2>
-<h2>react library for frontend</h2>
+# a simple full stack app to manage your daily notes for basic CRUD operations.
+<h2>⭐ Uses interfaces for being adaptable to different databases (mongodb, sql...)</h2>
+<h2>⭐ Uses React library for Frontend</h2>
