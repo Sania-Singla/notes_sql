@@ -1,12 +1,12 @@
 // general
-import { NotesInterface } from "../interfaces/notesInterface.js";
+import { Inotes } from "../interfaces/notesInterface.js";
 import { connection } from "../server.js";
 
 // for mongodb
 import { Note } from "../models/notesSchema.js";
 import { isValidObjectId } from "mongoose";
 
-class MysqlNotesClass extends NotesInterface {
+class MysqlNotesClass extends Inotes {
     async get_all_notes() {
         try {
             const [result] = await connection.query("select * from notes");
@@ -67,7 +67,7 @@ class MysqlNotesClass extends NotesInterface {
     }
 }
 
-class MongodbNotesClass extends NotesInterface {
+class MongodbNotesClass extends Inotes {
     async get_all_notes() {
         try {
             return await Note.find();

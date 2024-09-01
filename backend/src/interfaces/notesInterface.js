@@ -1,4 +1,4 @@
-export class NotesInterface {
+export class Inotes {
   async get_all_notes() {
     throw new Error("method get_all_notes is not overwritten.");
   }
