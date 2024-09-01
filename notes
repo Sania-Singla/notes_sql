@@ -1,0 +1,2 @@
+// only that static code makes a class singleton 
+// a static memeber/method in a class cant be accessed even by its own object and oviously cant be inherited (BUT can we accessed directly by using className.methodName())
