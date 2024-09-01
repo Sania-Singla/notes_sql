@@ -3,9 +3,9 @@ import { OK, SERVER_ERROR, BAD_REQUEST } from "../constants/errorCodes.js";
 
 const userObject = getServiceObject("notes");
 
-const get_notes = async (req, res) => {
+const getNotes = async (req, res) => {
     try {
-        const result = await userObject.get_notes();
+        const result = await userObject.getNotes();
         return res.status(OK).json(result);
     } catch (err) {
         return res
@@ -14,7 +14,7 @@ const get_notes = async (req, res) => {
     }
 };
 
-const create_note = async (req, res) => {
+const createNote = async (req, res) => {
     try {
         const { title, content } = req.body;
         if (!title || !content) {
@@ -22,7 +22,7 @@ const create_note = async (req, res) => {
                 .status(BAD_REQUEST)
                 .json({ message: "title and content are required." });
         }
-        const result = await userObject.create_note(title, content);
+        const result = await userObject.createNote(title, content);
         return res.status(OK).json(result);
     } catch (err) {
         return res
@@ -31,13 +31,13 @@ const create_note = async (req, res) => {
     }
 };
 
-const get_note = async (req, res) => {
+const getNote = async (req, res) => {
     try {
         const { id } = req.params;
         if (!id) {
             return res.status(BAD_REQUEST).json({ message: "id is missing." });
         }
-        const result = await userObject.get_note(id);
+        const result = await userObject.getNote(id);
         if (result?.message) {
             return res.status(BAD_REQUEST).json({ message: result.message });
         } else {
@@ -51,9 +51,9 @@ const get_note = async (req, res) => {
     }
 };
 
-const delete_notes = async (req, res) => {
+const deleteNotes = async (req, res) => {
     try {
-        await userObject.delete_notes();
+        await userObject.deleteNotes();
         return res.status(OK).json({ message: "all notes deleted!!" });
     } catch (err) {
         return res
@@ -62,13 +62,13 @@ const delete_notes = async (req, res) => {
     }
 };
 
-const delete_note = async (req, res) => {
+const deleteNote = async (req, res) => {
     try {
         const { id } = req.params;
         if (!id) {
             return res.status(BAD_REQUEST).json({ message: "id is missing." });
         }
-        const result = await userObject.delete_note(id);
+        const result = await userObject.deleteNote(id);
         if (result?.message) {
             return res.status(BAD_REQUEST).json({ message: result.message });
         } else {
@@ -84,15 +84,15 @@ const delete_note = async (req, res) => {
     }
 };
 
-const edit_note = async (req, res) => {
+const editNote = async (req, res) => {
     try {
         const { id } = req.params;
         const { title, content } = req.body;
-        const result = await userObject.edit_note(title, content, id);
+        const result = await userObject.editNote(title, content, id);
         if (result?.message) {
             return res.status(BAD_REQUEST).json({ message: result.message });
         } else {
-            const result = await userObject.get_note(id);
+            const result = await userObject.getNote(id);
             return res.status(OK).json(result);
         }
     } catch (err) {

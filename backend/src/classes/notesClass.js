@@ -7,7 +7,7 @@ import { Note } from "../models/notesSchema.js";
 import { isValidObjectId } from "mongoose";
 
 class MysqlNotesClass extends Inotes {
-    async get_notes() {
+    async getNotes() {
         try {
             const [result] = await connection.query("select * from notes");
             return result;
@@ -15,7 +15,7 @@ class MysqlNotesClass extends Inotes {
             throw new Error(err);
         }
     }
-    async get_note(id) {
+    async getNote(id) {
         try {
             const [[result]] = await connection.query(
                 "select * from notes where _id=?",
@@ -31,14 +31,14 @@ class MysqlNotesClass extends Inotes {
             throw new Error(err.message);
         }
     }
-    async delete_notes() {
+    async deleteNotes() {
         try {
             return await connection.query("truncate table notes");
         } catch (err) {
             throw new Error(err.message);
         }
     }
-    async delete_note(id) {
+    async deleteNote(id) {
         try {
             return await connection.query("delete from notes where _id=?", [
                 id,
@@ -47,7 +47,7 @@ class MysqlNotesClass extends Inotes {
             throw new Error(err.message);
         }
     }
-    async create_note(title, content) {
+    async createNote(title, content) {
         try {
             const [result] = await connection.query(
                 "insert into notes (title,content) values(?,?)",
@@ -58,7 +58,7 @@ class MysqlNotesClass extends Inotes {
             throw new Error(err.message);
         }
     }
-    async edit_note(title, content, id) {
+    async editNote(title, content, id) {
         try {
             return await connection.query(
                 "update notes set title=?, content=? where _id=?",
@@ -71,14 +71,14 @@ class MysqlNotesClass extends Inotes {
 }
 
 class MongodbNotesClass extends Inotes {
-    async get_notes() {
+    async getNotes() {
         try {
             return await Note.find();
         } catch (err) {
             throw new Error(err.message);
         }
     }
-    async get_note(id) {
+    async getNote(id) {
         try {
             if (!isValidObjectId(id)) {
                 return { message: "INVALID_ID" };
@@ -93,14 +93,14 @@ class MongodbNotesClass extends Inotes {
             throw new Error(err.message);
         }
     }
-    async delete_notes() {
+    async deleteNotes() {
         try {
             return await Note.deleteMany();
         } catch (err) {
             throw new Error(err.message);
         }
     }
-    async delete_note(id) {
+    async deleteNote(id) {
         try {
             if (!isValidObjectId(id)) {
                 return { message: "INVALID_ID" };
@@ -115,14 +115,14 @@ class MongodbNotesClass extends Inotes {
             throw new Error(err.message);
         }
     }
-    async create_note(title, content) {
+    async createNote(title, content) {
         try {
             return await Note.create({ title, content });
         } catch (err) {
             throw new Error(err.message);
         }
     }
-    async edit_note(title, content, id) {
+    async editNote(title, content, id) {
         try {
             if (!isValidObjectId(id)) {
                 return { message: "INVALID_ID" };
