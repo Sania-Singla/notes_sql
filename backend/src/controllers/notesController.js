@@ -2,11 +2,11 @@ import getServiceObject from "../db/serviceObjects.js";
 import { v4 as uuid } from "uuid";
 import { OK, SERVER_ERROR, BAD_REQUEST } from "../constants/errorCodes.js";
 
-const userObject = getServiceObject("notes");
+const notesObject = getServiceObject("notes");
 
 const getNotes = async (req, res) => {
     try {
-        const result = await userObject.getNotes();
+        const result = await notesObject.getNotes();
         return res.status(OK).json(result);
     } catch (err) {
         return res
@@ -24,7 +24,7 @@ const createNote = async (req, res) => {
                 .json({ message: "title and content are required." });
         }
         const id = uuid();
-        const result = await userObject.createNote(id, title, content);
+        const result = await notesObject.createNote(id, title, content);
         return res.status(OK).json(result);
     } catch (err) {
         return res
@@ -39,7 +39,7 @@ const getNote = async (req, res) => {
         if (!id) {
             return res.status(BAD_REQUEST).json({ message: "id is missing." });
         }
-        const result = await userObject.getNote(id);
+        const result = await notesObject.getNote(id);
         if (result?.message) {
             return res.status(BAD_REQUEST).json({ message: result.message });
         } else {
@@ -55,7 +55,7 @@ const getNote = async (req, res) => {
 
 const deleteNotes = async (req, res) => {
     try {
-        await userObject.deleteNotes();
+        await notesObject.deleteNotes();
         return res.status(OK).json({ message: "all notes deleted!!" });
     } catch (err) {
         return res
@@ -70,7 +70,7 @@ const deleteNote = async (req, res) => {
         if (!id) {
             return res.status(BAD_REQUEST).json({ message: "id is missing." });
         }
-        await userObject.deleteNote(id);
+        await notesObject.deleteNote(id);
         return res.status(OK).json({ message: "note deleted successfully!!" });
     } catch (err) {
         return res.status(SERVER_ERROR).json({
@@ -84,7 +84,7 @@ const editNote = async (req, res) => {
     try {
         const { id } = req.params;
         const { title, content } = req.body;
-        const result = await userObject.editNote(id, title, content);
+        const result = await notesObject.editNote(id, title, content);
         return res.status(OK).json(result);
     } catch (err) {
         return res

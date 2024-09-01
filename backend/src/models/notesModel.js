@@ -53,7 +53,7 @@ class MysqlNotesClass extends Inotes {
                 [id, title, content]
             );
             const note = await this.getNote(id);
-            if(note) return note;
+            if (note) return note;
         } catch (err) {
             throw new Error(err.message);
         }
@@ -65,7 +65,7 @@ class MysqlNotesClass extends Inotes {
                 [title, content, id]
             );
             const note = await this.getNote(id);
-            if(note) return note;
+            if (note) return note;
         } catch (err) {
             throw new Error(err.message);
         }
@@ -117,14 +117,14 @@ class MongodbNotesClass extends Inotes {
             throw new Error(err.message);
         }
     }
-    async createNote(title, content) {
+    async createNote(id, title, content) {
         try {
             return await Note.create({ title, content });
         } catch (err) {
             throw new Error(err.message);
         }
     }
-    async editNote(title, content, id) {
+    async editNote(id, title, content) {
         try {
             if (!isValidObjectId(id)) {
                 return { message: "INVALID_ID" };
