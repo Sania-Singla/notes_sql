@@ -1,4 +1,4 @@
-import { MysqlNotesClass, MongodbNotesClass } from "../classes/notesClass.js";
+import { MysqlNotesClass, MongodbNotesClass } from "../models/notesModel.js";
 
 export default function getServiceObject(serviceType) {
     if (serviceType) {
