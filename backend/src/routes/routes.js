@@ -2,18 +2,18 @@ import express from "express";
 export const notesRouter = express.Router();
 
 import {
-  get_notes,
-  get_note,
-  create_note,
-  delete_notes,
-  delete_note,
-  edit_note,
+  getNotes,
+  getNote,
+  createNote,
+  deleteNotes,
+  deleteNote,
+  editNote,
 } from "../controllers/notesController.js";
 
 notesRouter
   .route("/")
-  .get(get_notes)
-  .post(create_note)
-  .delete(delete_notes);
+  .get(getNotes)
+  .post(createNote)
+  .delete(deleteNotes);
 
-notesRouter.route("/:id").get(get_note).delete(delete_note).patch(edit_note);
+notesRouter.route("/:id").get(getNote).delete(deleteNote).patch(editNote);

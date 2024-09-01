@@ -3,7 +3,7 @@ import { Inotes } from "../interfaces/notesInterface.js";
 import { connection } from "../server.js";
 
 // for mongodb
-import { Note } from "../models/notesSchema.js";
+import { Note } from "../schemas/notesSchema.js";
 import { isValidObjectId } from "mongoose";
 
 class MysqlNotesClass extends Inotes {
@@ -26,7 +26,6 @@ class MysqlNotesClass extends Inotes {
             } else {
                 return { message: "NOTE_NOT_FOUND" };
             }
-            // return result[0];
         } catch (err) {
             throw new Error(err.message);
         }
@@ -47,23 +46,26 @@ class MysqlNotesClass extends Inotes {
             throw new Error(err.message);
         }
     }
-    async createNote(title, content) {
+    async createNote(id, title, content) {
         try {
-            const [result] = await connection.query(
-                "insert into notes (title,content) values(?,?)",
-                [title, content]
+            await connection.query(
+                "insert into notes (_id,title,content) values(?,?,?)",
+                [id, title, content]
             );
-            return { id: result.insertId };
+            const note = await this.getNote(id);
+            if(note) return note;
         } catch (err) {
             throw new Error(err.message);
         }
     }
-    async editNote(title, content, id) {
+    async editNote(id, title, content) {
         try {
-            return await connection.query(
+            await connection.query(
                 "update notes set title=?, content=? where _id=?",
                 [title, content, id]
             );
+            const note = await this.getNote(id);
+            if(note) return note;
         } catch (err) {
             throw new Error(err.message);
         }
@@ -107,7 +109,7 @@ class MongodbNotesClass extends Inotes {
             }
             const note = await Note.findByIdAndDelete(id);
             if (note) {
-                return;
+                return note;
             } else {
                 return { message: "NOTE_NOT_FOUND" };
             }

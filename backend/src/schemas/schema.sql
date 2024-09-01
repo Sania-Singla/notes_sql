@@ -3,11 +3,9 @@
 create database if NOT EXISTS notes_app;
 use notes_app;
 create table if NOT EXISTS notes (
-    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    _id varchar(40) PRIMARY KEY,
+    -- due to mongodb
     title VARCHAR(256) NOT NULL,
     content TEXT NOT NULL,
     createdAt TIMESTAMP NOT NULL DEFAULT NOW()
 );
-alter table notes
-    rename column id to _id;
--- due to mongodb

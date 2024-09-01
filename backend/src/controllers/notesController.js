@@ -1,4 +1,5 @@
 import getServiceObject from "../db/serviceObjects.js";
+import { v4 as uuid } from "uuid";
 import { OK, SERVER_ERROR, BAD_REQUEST } from "../constants/errorCodes.js";
 
 const userObject = getServiceObject("notes");
@@ -22,7 +23,8 @@ const createNote = async (req, res) => {
                 .status(BAD_REQUEST)
                 .json({ message: "title and content are required." });
         }
-        const result = await userObject.createNote(title, content);
+        const id = uuid();
+        const result = await userObject.createNote(id, title, content);
         return res.status(OK).json(result);
     } catch (err) {
         return res
@@ -68,14 +70,8 @@ const deleteNote = async (req, res) => {
         if (!id) {
             return res.status(BAD_REQUEST).json({ message: "id is missing." });
         }
-        const result = await userObject.deleteNote(id);
-        if (result?.message) {
-            return res.status(BAD_REQUEST).json({ message: result.message });
-        } else {
-            return res
-                .status(OK)
-                .json({ message: "note deleted successfully!!" });
-        }
+        await userObject.deleteNote(id);
+        return res.status(OK).json({ message: "note deleted successfully!!" });
     } catch (err) {
         return res.status(SERVER_ERROR).json({
             error: "Failed to delete the note.",
@@ -88,13 +84,8 @@ const editNote = async (req, res) => {
     try {
         const { id } = req.params;
         const { title, content } = req.body;
-        const result = await userObject.editNote(title, content, id);
-        if (result?.message) {
-            return res.status(BAD_REQUEST).json({ message: result.message });
-        } else {
-            const result = await userObject.getNote(id);
-            return res.status(OK).json(result);
-        }
+        const result = await userObject.editNote(id, title, content);
+        return res.status(OK).json(result);
     } catch (err) {
         return res
             .status(SERVER_ERROR)
@@ -102,11 +93,4 @@ const editNote = async (req, res) => {
     }
 };
 
-export {
-    get_notes,
-    get_note,
-    delete_notes,
-    create_note,
-    delete_note,
-    edit_note,
-};
+export { getNotes, getNote, deleteNotes, createNote, deleteNote, editNote };
