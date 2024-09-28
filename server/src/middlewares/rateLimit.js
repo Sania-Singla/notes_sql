@@ -1,3 +1,1 @@
-export default function rate_limit () {
-    
-}
+export default function rate_limit() {}

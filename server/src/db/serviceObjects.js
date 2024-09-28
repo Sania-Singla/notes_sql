@@ -1,27 +1,22 @@
-import { MysqlNotesClass, MongodbNotesClass } from "../models/notesModel.js"
+import { MongodbNotesClass } from "../models/MongodbNoteModel.js";
+import { MysqlNotesClass } from "../models/MYSQLnotesModel.js";
 
 export default function getServiceObject(serviceType) {
     if (process.env.DATABASE_TYPE === "sql") {
         switch (serviceType) {
             case "notes":
-                return new MysqlNotesClass()
-
-            // all other cases
-
+                return new MysqlNotesClass();
             default:
-                throw new Error("unsupported service type.")
+                throw new Error("unsupported service type.");
         }
     } else if (process.env.DATABASE_TYPE === "mongodb") {
         switch (serviceType) {
             case "notes":
-                return new MongodbNotesClass()
-
-            // all other cases
-
+                return new MongodbNotesClass();
             default:
-                throw new Error("unsupported service type.")
+                throw new Error("unsupported service type.");
         }
     } else {
-        throw new Error("unsupported database type for notes service.")
+        throw new Error("unsupported database type for notes service.");
     }
 }

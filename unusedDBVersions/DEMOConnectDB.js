@@ -20,17 +20,11 @@ export async function connect_db() {
             //becuase it is returning a promise so it wont throw error until tested via query or some other way like 👇
             // Test the connection
             const connection = await pool.getConnection();
-            console.log(
-                `Connected to the sql database successfully, host: ${connection.config.host}`
-            );
+            console.log(`Connected to the sql database successfully, host: ${connection.config.host}`);
             connection.release(); // Release the connection back to the pool
         } else if (process.env.DATABASE_TYPE === "mongodb") {
-            const connectionInstance = await mongoose.connect(
-                `${process.env.MONGODB_URL}${process.env.MONGODB_NAME}`
-            );
-            console.log(
-                `Connected to the mongodb database successfully, host: ${connectionInstance.connection.host}`
-            );
+            const connectionInstance = await mongoose.connect(`${process.env.MONGODB_URL}${process.env.MONGODB_NAME}`);
+            console.log(`Connected to the mongodb database successfully, host: ${connectionInstance.connection.host}`);
         } else {
             throw new Error("Unsupported database type");
         }
