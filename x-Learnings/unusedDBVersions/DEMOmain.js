@@ -1,4 +1,4 @@
-import { connect_db } from "../server/src/db/connectDB.js";
+import { connect_db } from "../../server/src/db/connectDB.js";
 import { MysqlNotesClass, MongodbNotesClass } from "../classes/notesClass.js";
 export let object;
 
