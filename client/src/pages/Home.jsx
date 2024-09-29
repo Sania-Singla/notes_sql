@@ -7,14 +7,13 @@ export default function Home() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        async function handleGetNotes() {
+        (async function handleGetNotes() {
             const notes = await notesServices.getNotes();
             if (notes && Array.isArray(notes)) {
                 // notes.isArray() is not the correct way
                 setNotes(notes);
             }
-        }
-        handleGetNotes();
+        })(); // IIFE
     }, []);
 
     async function handleDeleteNotes() {

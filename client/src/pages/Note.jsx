@@ -23,7 +23,8 @@ export default function Note() {
         async function getNote() {
             setLoading(true);
             const data = await notesServices.getNote(noteId);
-            if (data?.message !== "NOTE_NOT_FOUND" && data.message !== "INVALID_ID") {
+            console.log(data);
+            if (data && data?.message !== "NOTE_NOT_FOUND" && data?.message !== "INVALID_ID") {
                 setInputs({ title: data.title, content: data.content });
                 setNote(data);
             }
