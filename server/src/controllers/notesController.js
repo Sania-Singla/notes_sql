@@ -7,7 +7,8 @@ const notesObject = getServiceObject("notes");
 
 const getNotes = async (req, res) => {
     try {
-        const result = await notesObject.getNotes();
+        const { query = "" } = req.query;
+        const result = await notesObject.getNotes(query);
         return res.status(OK).json(result);
     } catch (err) {
         return res.status(SERVER_ERROR).json({ message: "Failed to retrieve notes.", error: err.message });

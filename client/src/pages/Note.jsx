@@ -61,14 +61,13 @@ export default function Note() {
     }
 
     return (
-        <div className="bg-black h-screen w-screen p-4">
+        <div className="bg-black h-full w-screen p-4">
             {loading ? (
-                // ⭐lazy loading
-                <div className="text-white flex items-start justify-center w-full h-full">loading...</div>
+                <div className="text-white flex items-start justify-center w-full h-full text-xl mt-10">Loading...</div>
             ) : (
                 Object.keys(note).length && (
                     // is note object empty
-                    <div className="relative bg-[#fbc9c9] rounded-xl p-4">
+                    <div className="relative bg-[#fbc9c9] rounded-xl p-4 pb-[60px]">
                         {editing ? (
                             <form onSubmit={handleEditNote} className="flex flex-col items-start justify-start gap-4">
                                 <div className="w-full h-full">
@@ -88,7 +87,7 @@ export default function Note() {
                                     />
                                 </div>
 
-                                <div className="w-full h-full">
+                                <div className="w-full h-full mb-2">
                                     <span className="text-[#e20606]">*</span>
                                     <label htmlFor="content" className="font-semibold text-[1.15rem]">
                                         Content :
@@ -106,7 +105,7 @@ export default function Note() {
                                     />
                                 </div>
 
-                                <div className="self-end flex items-center justify-center gap-4 mt-2">
+                                <div className="absolute bottom-4 right-4 flex items-center justify-center gap-4">
                                     <button
                                         onClick={handleReset}
                                         type="button"
@@ -131,23 +130,23 @@ export default function Note() {
                             </div>
                         )}
 
-                        <div className="absolute top-4 right-4 flex items-center justify-center gap-4">
-                            <button
-                                onClick={handleDeleteNote}
-                                className="bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] flex items-center justify-center shadow-sm shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
-                            >
-                                Delete
-                            </button>
-
-                            {!editing && (
+                        {!editing && (
+                            <div className="absolute bottom-4 right-4 flex items-center justify-center gap-4">
                                 <button
                                     onClick={() => setEditing(true)}
                                     className="bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] shadow-sm flex items-center justify-center shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
                                 >
                                     Edit
                                 </button>
-                            )}
-                        </div>
+
+                                <button
+                                    onClick={handleDeleteNote}
+                                    className="bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] flex items-center justify-center shadow-sm shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                        )}
                     </div>
                 )
             )}

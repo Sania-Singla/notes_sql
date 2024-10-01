@@ -39,9 +39,9 @@ class NotesServices {
         }
     }
 
-    async getNotes() {
+    async getNotes(query) {
         try {
-            const res = await fetch("/api/v1/notes", {
+            const res = await fetch(`/api/v1/notes?query=${query}`, {
                 method: "GET",
             });
 

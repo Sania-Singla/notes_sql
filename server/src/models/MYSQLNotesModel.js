@@ -2,10 +2,14 @@ import { Inotes } from "../interfaces/notesInterface.js";
 import { connection } from "../server.js";
 
 export class MysqlNotesClass extends Inotes {
-    async getNotes() {
+    async getNotes(query) {
         try {
-            const q = "SELECT * FROM notes ORDER BY updatedAt DESC";
-            const [notes] = await connection.query(q);
+            let q = "SELECT * FROM notes";
+            if (query) {
+                q += " WHERE title LIKE ?";
+            }
+            q += " ORDER BY updatedAt DESC";
+            const [notes] = await connection.query(q, query ? [`%${query}%`] : []);
             if (!notes.length) {
                 return { message: "NO_NOTES_FOUND" };
             }
