@@ -24,9 +24,11 @@ export default function Note() {
             setLoading(true);
             const data = await notesServices.getNote(noteId);
             console.log(data);
-            if (data && data?.message !== "NOTE_NOT_FOUND" && data?.message !== "INVALID_ID") {
+            if (data && data?.message !== "NOTE_NOT_FOUND" && data?.message !== "INVALID_NOTE_ID") {
                 setInputs({ title: data.title, content: data.content });
                 setNote(data);
+            } else {
+                navigate("/not-found");
             }
             setLoading(false);
         }
@@ -58,79 +60,97 @@ export default function Note() {
         setEditing(false);
     }
 
-    if (loading) {
-        return <div className="text-white text-center w-full">loading...</div>;
-    } else if (Object.keys(note).length) {
-        return (
-            <div className="bg-black min-h-screen p-4">
-                <div className="relative bg-[#fbc9c9] rounded-lg p-4">
-                    {editing ? (
-                        <form onSubmit={handleEditNote}>
-                            <span className="text-[#e20606]">*</span>
-                            <label htmlFor="title">Title:</label>
-                            <input
-                                type="text"
-                                name="title"
-                                id="title"
-                                placeholder="enter the title"
-                                value={inputs.title}
-                                autoFocus
-                                onChange={handleChange}
-                                className="bg-transparent mb-2 block border-[0.01rem] border-black rounded-md outline-none indent-2 p-1"
-                            />
-                            <span className="text-[#e20606]">*</span>
-                            <label htmlFor="content">Content:</label>
-                            <input
-                                type="text"
-                                name="content"
-                                id="content"
-                                placeholder="enter the content"
-                                value={inputs.content}
-                                onChange={handleChange}
-                                className="bg-transparent mb-2 block border-[0.01rem] border-black rounded-md outline-none indent-2 p-1"
-                            />
-                            <button
-                                onClick={handleReset}
-                                type="button"
-                                className="mt-4 bg-[#cd2121] rounded-lg py-1 px-2 text-md shadow-md shadow-black hover:border-[#b5b4b4] border-transparent border-[0.01rem] font-medium"
-                            >
-                                cancel
-                            </button>
-                            <button
-                                disabled={disabled}
-                                onMouseOver={handleMouseOver}
-                                type="submit"
-                                className="disabled:cursor-not-allowed ml-4 bg-[#cd2121] rounded-lg py-1 px-2 text-md shadow-md shadow-black hover:border-[#b5b4b4] border-transparent border-[0.01rem] font-medium"
-                            >
-                                update
-                            </button>
-                        </form>
-                    ) : (
-                        <div className="w-full">
-                            <div className="text-2xl font-semibold text-start">{inputs.title}</div>
-                            <div className="text-lg mt-4 text-start w-full">{inputs.content}</div>
-                        </div>
-                    )}
-                    <div className="absolute top-2 right-2">
-                        <button
-                            onClick={handleDeleteNote}
-                            className="mr-4 bg-[#cd2121] rounded-lg py-1 px-2 text-md shadow-md shadow-black hover:border-[#b5b4b4] border-transparent border-[0.01rem] font-medium"
-                        >
-                            delete
-                        </button>
-                        {!editing && (
-                            <button
-                                onClick={() => setEditing(true)}
-                                className="bg-[#cd2121] rounded-lg py-1 px-2 text-md shadow-md shadow-black hover:border-[#b5b4b4] border-transparent border-[0.01rem] font-medium"
-                            >
-                                edit
-                            </button>
+    return (
+        <div className="bg-black h-screen w-screen p-4">
+            {loading ? (
+                // ⭐lazy loading
+                <div className="text-white flex items-start justify-center w-full h-full">loading...</div>
+            ) : (
+                Object.keys(note).length && (
+                    // is note object empty
+                    <div className="relative bg-[#fbc9c9] rounded-xl p-4">
+                        {editing ? (
+                            <form onSubmit={handleEditNote} className="flex flex-col items-start justify-start gap-4">
+                                <div className="w-full h-full">
+                                    <span className="text-[#e20606]">*</span>
+                                    <label htmlFor="title" className="font-semibold text-[1.15rem]">
+                                        Title :
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="title"
+                                        id="title"
+                                        placeholder="Enter the Title"
+                                        value={inputs.title}
+                                        autoFocus
+                                        onChange={handleChange}
+                                        className="text-lg w-[50%] bg-transparent placeholder-[#464646] block border-[0.01rem] border-[#e2acac] rounded-md outline-none indent-2 p-1"
+                                    />
+                                </div>
+
+                                <div className="w-full h-full">
+                                    <span className="text-[#e20606]">*</span>
+                                    <label htmlFor="content" className="font-semibold text-[1.15rem]">
+                                        Content :
+                                    </label>
+                                    <textarea
+                                        type="text"
+                                        name="content"
+                                        id="content"
+                                        placeholder="Enter the Content"
+                                        value={inputs.content}
+                                        onChange={handleChange}
+                                        rows={3}
+                                        autoFocus
+                                        className="text-lg w-full bg-transparent placeholder-[#464646] block border-[0.01rem] border-[#e2acac] rounded-md outline-none p-2"
+                                    />
+                                </div>
+
+                                <div className="self-end flex items-center justify-center gap-4 mt-2">
+                                    <button
+                                        onClick={handleReset}
+                                        type="button"
+                                        className="bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] flex items-center justify-center shadow-sm shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        disabled={disabled}
+                                        onMouseOver={handleMouseOver}
+                                        type="submit"
+                                        className="disabled:cursor-not-allowed bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] flex items-center justify-center shadow-sm shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
+                                    >
+                                        Update
+                                    </button>
+                                </div>
+                            </form>
+                        ) : (
+                            <div className="w-full flex flex-col items-center justify-center gap-4">
+                                <div className="text-[1.8rem] font-bold text-center">{inputs.title}</div>
+                                <div className="text-[1.3rem] text-center px-2">{inputs.content}</div>
+                            </div>
                         )}
+
+                        <div className="absolute top-4 right-4 flex items-center justify-center gap-4">
+                            <button
+                                onClick={handleDeleteNote}
+                                className="bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] flex items-center justify-center shadow-sm shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
+                            >
+                                Delete
+                            </button>
+
+                            {!editing && (
+                                <button
+                                    onClick={() => setEditing(true)}
+                                    className="bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] shadow-sm flex items-center justify-center shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
+                                >
+                                    Edit
+                                </button>
+                            )}
+                        </div>
                     </div>
-                </div>
-            </div>
-        );
-    } else {
-        return <div className="text-white text-center w-full">note not found</div>;
-    }
+                )
+            )}
+        </div>
+    );
 }
