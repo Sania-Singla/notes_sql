@@ -1,7 +1,8 @@
 export default function NotFound() {
     return (
-        <div className="w-full h-full flex items-center justify-center">
-            <div className="text-white text-3xl font-semibold">Oops !! 404 PAGE NOT FOUND</div>
+        <div className="w-full h-screen flex flex-col items-center justify-center gap-4">
+            <div className="text-[85px]">🫤</div>
+            <div className="text-4xl text-white">Oops !! 404 PAGE NOT FOUND</div>
         </div>
     );
 }

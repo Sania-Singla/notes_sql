@@ -22,6 +22,9 @@ const createNote = async (req, res) => {
             return res.status(BAD_REQUEST).json({ message: "MISSING_FIELDS" });
         }
         const noteId = uuid();
+        if (!noteId) {
+            throw new Error({ message: "NOTEID_CREATION_UUID_ISSUE" });
+        }
         const result = await notesObject.createNote(noteId, title, content);
         return res.status(OK).json(result);
     } catch (err) {
@@ -32,11 +35,8 @@ const createNote = async (req, res) => {
 const getNote = async (req, res) => {
     try {
         const { noteId } = req.params;
-        if (!noteId) {
-            return res.status(BAD_REQUEST).json({ message: "MISSING_ID" });
-        }
-        if (!isValidUUID(noteId)) {
-            return res.status(BAD_REQUEST).json({ message: "INVALID_NOTE_ID" });
+        if (!noteId || !isValidUUID(noteId)) {
+            return res.status(BAD_REQUEST).json({ message: "MISSING_OR_INVALID_NOTEID" });
         }
         const result = await notesObject.getNote(noteId);
         if (result?.message) {
@@ -60,16 +60,15 @@ const deleteNotes = async (req, res) => {
 const deleteNote = async (req, res) => {
     try {
         const { noteId } = req.params;
-        if (!noteId) {
-            return res.status(BAD_REQUEST).json({ message: "MISSING_ID" });
+        if (!noteId || !isValidUUID(noteId)) {
+            return res.status(BAD_REQUEST).json({ message: "MISSING_OR_INVALID_NOTEID" });
         }
-        if (!isValidUUID(noteId)) {
-            return res.status(BAD_REQUEST).json({ message: "INVALID_NOTE_ID" });
-        }
+
         const note = await notesObject.getNote(noteId);
         if (note?.message) {
             return res.status(BAD_REQUEST).json(note);
         }
+
         const result = await notesObject.deleteNote(noteId);
         return res.status(OK).json(result);
     } catch (err) {
@@ -81,17 +80,19 @@ const editNote = async (req, res) => {
     try {
         const { noteId } = req.params;
         const { title, content } = req.body;
-        const updatedAt = getCurrentTimestamp(new Date());
-        if (!isValidUUID(noteId)) {
-            return res.status(BAD_REQUEST).json({ message: "INVALID_NOTE_ID" });
+        if (!noteId || !isValidUUID(noteId)) {
+            return res.status(BAD_REQUEST).json({ message: "MISSING_OR_INVALID_NOTEID" });
         }
         if (!title || !content) {
             return res.status(BAD_REQUEST).json({ message: "MISSING_FIELDS" });
         }
+
         const note = await notesObject.getNote(noteId);
         if (note?.message) {
             return res.status(BAD_REQUEST).json(note);
         }
+
+        const updatedAt = getCurrentTimestamp(new Date());
         const result = await notesObject.editNote(noteId, title, content, updatedAt);
         return res.status(OK).json(result);
     } catch (err) {

@@ -7,3 +7,5 @@ create table IF NOT EXISTS notes (
     createdAt TIMESTAMP NOT NULL DEFAULT NOW(),
     updatedAt TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+desc notes;
