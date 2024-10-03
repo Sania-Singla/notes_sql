@@ -1,5 +1,5 @@
-import { MongodbNotesClass } from "../models/MongodbNoteModel.js";
-import { MysqlNotesClass } from "../models/MYSQLnotesModel.js";
+import { MongodbNotesClass } from "../models/MongodbNotesModel.js";
+import { MysqlNotesClass } from "../models/MYSQLNotesModel.js";
 
 export default function getServiceObject(serviceType) {
     if (process.env.DATABASE_TYPE === "sql") {
