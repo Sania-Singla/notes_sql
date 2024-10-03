@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server:{
     proxy:{
-      "/api":"http://localhost:2000",
+      // "/api":"http://localhost:2000",
+      "/api":"https://notes-app-backend-ytvl.onrender.com",
     }
   }
 })
