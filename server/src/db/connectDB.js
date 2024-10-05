@@ -17,12 +17,20 @@ class DBconnection {
         try {
             if (!this.connection) {
                 if (process.env.DATABASE_TYPE === "sql") {
+                    // this.connection = mysql
+                    //     .createPool({
+                    //         host: process.env.MYSQL_HOST,
+                    //         user: process.env.MYSQL_USER,
+                    //         password: process.env.MYSQL_PASSWORD,
+                    //         database: process.env.MYSQL_DATABASE_NAME,
+                    //     })
+                    //     .promise();
                     this.connection = mysql
                         .createPool({
-                            host: process.env.MYSQL_HOST,
-                            user: process.env.MYSQL_USER,
-                            password: process.env.MYSQL_PASSWORD,
-                            database: process.env.MYSQL_DATABASE,
+                            host: process.env.MYSQL_CLOUD_HOST,
+                            user: process.env.MYSQL_CLOUD_USER,
+                            password: process.env.MYSQL_CLOUD_PASSWORD,
+                            database: process.env.MYSQL_CLOUD_DATABASE_NAME,
                         })
                         .promise();
 
@@ -32,7 +40,7 @@ class DBconnection {
                     // Release the connection
                     connection.release();
                 } else if (process.env.DATABASE_TYPE === "mongodb") {
-                    this.connection = await mongoose.connect(`${process.env.MONGODB_URL}${process.env.MONGODB_NAME}`);
+                    this.connection = await mongoose.connect(`${process.env.MONGODB_URL}${process.env.MONGODB_DB_NAME}`);
                     console.log(`Connected to the mongodb database successfully, host: ${this.connection.connection.host}`);
                 } else {
                     throw new Error("Unsupported database type");
