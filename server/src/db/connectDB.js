@@ -17,22 +17,22 @@ class DBconnection {
         try {
             if (!this.connection) {
                 if (process.env.DATABASE_TYPE === "sql") {
-                    // this.connection = mysql
-                    //     .createPool({
-                    //         host: process.env.MYSQL_HOST,
-                    //         user: process.env.MYSQL_USER,
-                    //         password: process.env.MYSQL_PASSWORD,
-                    //         database: process.env.MYSQL_DATABASE_NAME,
-                    //     })
-                    //     .promise();
                     this.connection = mysql
                         .createPool({
-                            host: process.env.MYSQL_CLOUD_HOST,
-                            user: process.env.MYSQL_CLOUD_USER,
-                            password: process.env.MYSQL_CLOUD_PASSWORD,
-                            database: process.env.MYSQL_CLOUD_DATABASE_NAME,
+                            host: process.env.MYSQL_HOST,
+                            user: process.env.MYSQL_USER,
+                            password: process.env.MYSQL_PASSWORD,
+                            database: process.env.MYSQL_DATABASE_NAME,
                         })
                         .promise();
+                    // this.connection = mysql
+                    //     .createPool({
+                    //         host: process.env.MYSQL_CLOUD_HOST,
+                    //         user: process.env.MYSQL_CLOUD_USER,
+                    //         password: process.env.MYSQL_CLOUD_PASSWORD,
+                    //         database: process.env.MYSQL_CLOUD_DATABASE_NAME,
+                    //     })
+                    //     .promise();
 
                     // Test the connection becuase it is returning a promise so it wont throw error until tested explictly 👇
                     const connection = await this.connection.getConnection();

@@ -61,7 +61,7 @@ export default function Note() {
     }
 
     return (
-        <div className="bg-black h-full w-screen p-4">
+        <div className="h-full w-full overflow-scroll">
             {loading ? (
                 <div className="text-white flex items-start justify-center w-full h-full text-xl mt-10">Loading...</div>
             ) : (

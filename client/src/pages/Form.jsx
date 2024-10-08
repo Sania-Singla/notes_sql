@@ -34,27 +34,31 @@ export default function Form() {
     }
 
     return (
-        <div className="bg-black min-h-screen text-white flex items-start justify-center pt-10">
-            <form onSubmit={handelCreateNote} className="flex flex-col items-center justify-center w-full h-full gap-6">
-                <div className="mb-6">
-                    <div className="text-center text-[85px] mb-5">😏</div>
-                    <div className="flex items-center justify-center text-[1.4rem]">
-                        <span>✨</span>
-                        <div>
-                            <div className="font-semibold px-2">Create a New Note</div>
-                            <motion.hr
-                                initial={{ width: 0 }}
-                                animate={{ width: "100%" }}
-                                transition={{ duration: 0.4 }}
-                                className="border-[#c2a7a7]"
-                            />
-                        </div>
-                        <span>✨</span>
+        <div className="h-full text-white flex flex-col items-center justify-center gap-12">
+            <div className="w-full flex flex-col items-center justify-start gap-6">
+                <div className="text-[85px]">😏</div>
+                <div className="flex items-center justify-center text-[1.4rem]">
+                    <span>✨</span>
+                    <div>
+                        <div className="font-semibold px-2">Create a New Note</div>
+                        <motion.hr
+                            initial={{ width: 0 }}
+                            animate={{ width: "100%" }}
+                            transition={{ duration: 0.4 }}
+                            className="border-[#c2a7a7]"
+                        />
                     </div>
+                    <span>✨</span>
                 </div>
+            </div>
+
+            <form
+                onSubmit={handelCreateNote}
+                className="flex flex-col items-center justify-center w-full gap-6"
+            >
                 <div className="w-[300px]">
-                    <span className="text-[#e20606]">*</span>
-                    <label htmlFor="title">Title:</label>
+                    <span className="text-[#e20606]">* </span>
+                    <label htmlFor="title">Title :</label>
                     <input
                         type="text"
                         name="title"
@@ -65,9 +69,10 @@ export default function Form() {
                         className="w-full bg-transparent block border-[0.01rem] border-[#b5b4b4] rounded-md outline-none indent-2 p-2"
                     />
                 </div>
+
                 <div className="w-[300px]">
-                    <span className="text-[#e20606]">*</span>
-                    <label htmlFor="content">Content:</label>
+                    <span className="text-[#e20606]">* </span>
+                    <label htmlFor="content">Content :</label>
                     <input
                         type="text"
                         name="content"
@@ -78,7 +83,8 @@ export default function Form() {
                         className="w-full bg-transparent block border-[0.01rem] border-[#b5b4b4] rounded-md outline-none indent-2 p-2"
                     />
                 </div>
-                <div className="w-[270px] flex items-center justify-center mt-6 gap-8">
+
+                <div className="w-[270px] flex items-center justify-center gap-8 mt-4">
                     <button
                         type="button"
                         onClick={handleReset}

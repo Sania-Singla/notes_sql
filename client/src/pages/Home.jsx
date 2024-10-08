@@ -59,7 +59,7 @@ export default function Home() {
     ));
 
     return (
-        <div className="px-[3%] py-8 h-full w-full flex flex-col gap-10 items-start justify-start">
+        <div className="h-full w-full flex flex-col gap-10 items-center justify-start">
             <div className="text-center flex sm:flex-row flex-col items-center justify-between gap-10 w-full">
                 <div className="flex items-center justify-start gap-2 w-full">
                     <div>
@@ -111,12 +111,12 @@ export default function Home() {
             {loading ? (
                 <div className="text-white text-xl text-center w-full mt-10">Loading...</div>
             ) : (
-                <div className="w-full h-full">
+                <div className="w-full px-[5px] h-full overflow-y-scroll overflow-x-hidden">
                     {notes?.length > 0 ? (
                         notes.length <= 2 ? (
-                            <div className="w-full grid auto-rows-auto grid-cols-[repeat(auto-fit,350px)] gap-6">{notesElements}</div>
+                            <div className="w-full grid auto-rows-auto grid-cols-[repeat(auto-fit,300px)] gap-6">{notesElements}</div>
                         ) : (
-                            <div className="w-full grid auto-rows-auto grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6">{notesElements}</div>
+                            <div className="w-full grid auto-rows-auto grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">{notesElements}</div>
                         )
                     ) : (
                         <div className="w-full text-white text-center p-10">
