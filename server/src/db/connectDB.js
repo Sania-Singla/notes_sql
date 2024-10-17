@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 class DBconnection {
     constructor() {
-        this.connection = null; // just creates a property named connection
+        this.connection = null;
     }
 
     static getInstance() {
@@ -16,40 +16,58 @@ class DBconnection {
     async connect() {
         try {
             if (!this.connection) {
-                if (process.env.DATABASE_TYPE === "sql") {
-                    this.connection = mysql
-                        .createPool({
-                            host: process.env.MYSQL_HOST,
-                            user: process.env.MYSQL_USER,
-                            password: process.env.MYSQL_PASSWORD,
-                            database: process.env.MYSQL_DATABASE_NAME,
-                        })
-                        .promise();
-                    // this.connection = mysql
-                    //     .createPool({
-                    //         host: process.env.MYSQL_CLOUD_HOST,
-                    //         user: process.env.MYSQL_CLOUD_USER,
-                    //         password: process.env.MYSQL_CLOUD_PASSWORD,
-                    //         database: process.env.MYSQL_CLOUD_DATABASE_NAME,
-                    //     })
-                    //     .promise();
-
-                    // Test the connection becuase it is returning a promise so it wont throw error until tested explictly 👇
-                    const connection = await this.connection.getConnection();
-                    console.log(`Connected to the sql database successfully, host: ${connection.config.host}`);
-                    // Release the connection
-                    connection.release();
-                } else if (process.env.DATABASE_TYPE === "mongodb") {
-                    this.connection = await mongoose.connect(`${process.env.MONGODB_URL}${process.env.MONGODB_DB_NAME}`);
-                    console.log(`Connected to the mongodb database successfully, host: ${this.connection.connection.host}`);
-                } else {
-                    throw new Error("Unsupported database type");
+                switch (process.env.DATABASE_TYPE) {
+                    case "sql": {
+                        await this.connectToMYSQL();
+                        break;
+                    }
+                    case "mongodb": {
+                        await this.connectToMongoDB();
+                        break;
+                    }
+                    default: {
+                        throw new Error("Unsupported database type");
+                    }
                 }
             }
+            return this.connection;
         } catch (err) {
             return console.log("db didn't connected !!", err);
         }
-        return this.connection;
+    }
+
+    async connectToMYSQL() {
+        try {
+            this.connection = mysql
+                .createPool({
+                    host: process.env.MYSQL_HOST,
+                    user: process.env.MYSQL_USER,
+                    password: process.env.MYSQL_PASSWORD,
+                    database: process.env.MYSQL_DATABASE_NAME,
+                })
+                .promise();
+
+            // Test the connection becuase it is returning a promise so it wont throw error until tested explictly 👇
+            const conn = await this.connection.getConnection();
+            console.log(`Connected to mysql successfully, host: ${conn.config.host}`);
+            conn.release();
+        } catch (err) {
+            return console.log("mysql didn't connected !!", err);
+        }
+    }
+
+    async connectToMongoDB() {
+        try {
+            this.connection = await mongoose.connect(
+                `${process.env.MONGODB_URL}${process.env.MONGODB_DB_NAME}`
+            );
+
+            console.log(
+                `Connected to mongodb successfully, host: ${this.connection.connection.host}`
+            );
+        } catch (err) {
+            return console.log("mongodb didn't connected !!", err);
+        }
     }
 }
 
