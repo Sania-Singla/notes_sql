@@ -76,7 +76,24 @@ Feel free to use it, modify it, and share it.
 Feel free to reach out for collaborations or suggestions!
 
 ### Connect with me:
-- <a href="https://www.linkedin.com/in/sania-singla"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/LinkedIn_Logo_2013.png" alt="LinkedIn" width="20" height="20"></a> [Sania-Singla](https://www.linkedin.com/in/sania-singla)
-- <a href="https://discord.com/users/YourDiscordID"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Discord_Logo_2023_black.svg" alt="Discord" width="20" height="20"></a> [@Sania-Singla](https://discord.com/users/YourDiscordID)
-- <a href="https://x.com/sania_singla"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Twitter_Logo_2012.svg" alt="Twitter" width="20" height="20"></a> [@Sania-Singla](https://x.com/sania_singla)
+- [![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/5/58/LinkedIn_Logo_2013.png)](https://www.linkedin.com/in/sania-singla) [Sania-Singla](https://www.linkedin.com/in/sania-singla)
+- [![Discord](https://upload.wikimedia.org/wikipedia/commons/9/9f/Discord_Logo_2023_black.svg)](https://discord.com/users/YourDiscordID) [@Sania-Singla](https://discord.com/users/YourDiscordID)
+- [![Twitter](https://upload.wikimedia.org/wikipedia/commons/0/0b/Twitter_Logo_2012.svg)](https://x.com/sania_singla) [@Sania-Singla](https://x.com/sania_singla)
 
+
+
+
+<!-- LinkedIn Icon -->
+<a href="https://www.linkedin.com/in/sania-singla" target="_blank">
+  <i class="fa-brands fa-linkedin"></i>
+</a>
+
+<!-- Discord Icon -->
+<a href="https://discord.com/channels/@sania_singla" target="_blank">
+  <i class="fa-brands fa-discord"></i>
+</a>
+
+<!-- Twitter Icon -->
+<a href="https://x.com/sania_singla" target="_blank">
+  <i class="fa-brands fa-square-x-twitter"></i>
+</a>
