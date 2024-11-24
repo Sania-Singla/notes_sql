@@ -75,7 +75,12 @@ Feel free to use it, modify it, and share it.
 **Sania**: Full Stack Developer and Designer of this project.  
 Feel free to reach out for collaborations or suggestions!
 
+## 🧑‍💻 Authors  
+**Sania**: Full Stack Developer and Designer of this project.  
+Feel free to reach out for collaborations or suggestions!
+
 ### Connect with me:
-- ![LinkedIn](https://img.shields.io/badge/LinkedIn-YourLinkedInProfile-0A66C2?style=flat&logo=linkedin&logoColor=white) [Sania-Singla](https://www.linkedin.com/in/sania-singla)
-- ![Discord](https://img.shields.io/badge/Discord-YourDiscordUsername-7289DA?style=flat&logo=discord&logoColor=white) [@Sania-Singla](https://discord.com/channels/@sania_singl)
-- ![Twitter](https://img.shields.io/badge/Twitter-%40YourTwitterHandle-1DA1F2?style=flat&logo=twitter&logoColor=white) [@Sania-Singla](https://x.com/sania_singla)
+- [LinkedIn](https://www.linkedin.com/in/sania-singla) ![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo_2013.png)
+- [Discord](https://discord.com/users/YourDiscordID) ![Discord](https://upload.wikimedia.org/wikipedia/commons/6/6b/Discord_logo_2023.png)
+- [Twitter](https://twitter.com/Sania_Singla) ![Twitter](https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_2021.svg)
+- [GitHub](https://github.com/SaniaSingla) ![GitHub](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg)
