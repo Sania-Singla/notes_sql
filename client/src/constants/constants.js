@@ -21,7 +21,7 @@ const CONTRIBUTORS = [
             discord: '',
             gitHub: 'https://github.com/Vasundhra-Gupta',
             threads: '',
-            instagram: '',
+            instagram: 'https://www.instagram.com/vasundhragupta962',
         },
     },
 ];
