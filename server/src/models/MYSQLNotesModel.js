@@ -8,7 +8,7 @@ export class MysqlNotesClass extends Inotes {
             if (query) {
                 q += ' WHERE title LIKE ?';
             }
-            q += ` ORDER BY updatedAt DESC`;
+            q += ' ORDER BY updatedAt DESC, createdAt DESC';
 
             const params = query ? [`%${query}%`] : [];
 

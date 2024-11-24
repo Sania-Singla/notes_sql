@@ -4,7 +4,8 @@ import { Note } from '../schemas/MongodbNotesSchema.js';
 export class MongodbNotesClass extends Inotes {
     async getNotes(query) {
         try {
-            const notes = await Note.find({}, null, {
+            const filter = query || {};
+            const notes = await Note.find(filter, null, {
                 sort: { updatedAt: -1, createdAt: -1 },
             }); // 1 => asc, -1 => desc  // sort needs to be the 3rd parameter
             if (notes?.length === 0) {

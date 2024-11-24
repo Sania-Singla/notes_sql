@@ -17,11 +17,11 @@ class DBconnection {
         try {
             if (!this.connection) {
                 switch (process.env.DATABASE_TYPE) {
-                    case 'sql': {
+                    case 'SQL': {
                         await this.connectToMYSQL();
                         break;
                     }
-                    case 'mongodb': {
+                    case 'MongoDB': {
                         await this.connectToMongoDB();
                         break;
                     }
@@ -50,11 +50,11 @@ class DBconnection {
             // Test the connection becuase it is returning a promise so it wont throw error until tested explictly 👇
             const conn = await this.connection.getConnection();
             console.log(
-                `Connected to mysql successfully, host: ${conn.config.host}`
+                `Connected to MySQL successfully, host: ${conn.config.host}`
             );
             conn.release();
         } catch (err) {
-            return console.log("mysql didn't connected !!", err);
+            return console.log("MySQL didn't connected !!", err);
         }
     }
 
@@ -65,10 +65,10 @@ class DBconnection {
             );
 
             console.log(
-                `Connected to mongodb successfully, host: ${this.connection.connection.host}`
+                `Connected to MongoDB successfully, host: ${this.connection.connection.host}`
             );
         } catch (err) {
-            return console.log("mongodb didn't connected !!", err);
+            return console.log("MongoDB didn't connected !!", err);
         }
     }
 }
