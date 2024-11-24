@@ -8,4 +8,11 @@ create table IF NOT EXISTS notes (
     updatedAt TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-desc notes;
+DELIMITER $$
+CREATE TRIGGER updateUpdatedAt
+BEFORE UPDATE ON notes
+FOR EACH ROW
+BEGIN	
+    SET NEW.updatedAt = NOW();
+END$$
+DELIMITER ;

@@ -30,7 +30,6 @@ This project is a robust **Full Stack Application** that empowers users to manag
 ### Backend  
 - **Node.js**: Runtime environment for server-side scripting.  
 - **Express.js**: Lightweight and flexible web application framework.  
-- **JWTs**: For secure authentication.
 
 ### Database  
 - **MySQL**: Relational database for structured data storage.  
@@ -117,7 +116,7 @@ Feel free to use it, modify it, and share it.
 ## 🧑‍💻 Authors  
 **Sania**: Full Stack Developer and Designer of this project.  
 
-*✨Feel free to reach out for collaborations or suggestions!✨*
+*✨Feel free to reach out for collaborations or suggestions!*
 
 ### Connect with me:
 - **LinkedIn**: https://www.linkedin.com/in/sania-singla

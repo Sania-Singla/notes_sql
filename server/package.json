@@ -1,26 +1,27 @@
 {
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "mongodb": "^6.8.0",
-    "mongoose": "^8.5.4",
-    "mysql2": "^3.11.0",
-    "uuid": "^10.0.0"
-  },
-  "name": "notes_app",
-  "version": "1.0.0",
-  "main": "server.js",
-  "type": "module",
-  "scripts": {
-    "dev": "nodemon src/server.js"
-  },
-  "keywords": [],
-  "author": "sania",
-  "license": "ISC",
-  "description": "this is the notes app",
-  "devDependencies": {
-    "nodemon": "^3.1.4",
-    "prettier": "3.3.3"
-  }
+    "name": "server",
+    "version": "1.0.0",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "dev": "npm run format && nodemon src/server.js",
+        "format": "prettier --write ."
+    },
+    "keywords": [],
+    "author": "Sania",
+    "license": "ISC",
+    "description": "This is the Notes_App",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.0",
+        "mongodb": "^6.8.0",
+        "mongoose": "^8.5.4",
+        "mysql2": "^3.11.0",
+        "uuid": "^10.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.4",
+        "prettier": "3.3.3"
+    }
 }

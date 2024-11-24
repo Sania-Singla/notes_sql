@@ -1,14 +1,14 @@
-import { useNavigate } from "react-router-dom";
-import { notesServices } from "../dbServices/notesService.js";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
+import { notesServices } from '../dbServices/notesService.js';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Form() {
     const navigate = useNavigate();
     const [disabled, setDisabled] = useState(false);
     const [inputs, setInputs] = useState({
-        title: "",
-        content: "",
+        title: '',
+        content: '',
     });
 
     async function handleChange(e) {
@@ -17,14 +17,14 @@ export default function Form() {
     }
 
     async function handleReset() {
-        return setInputs({ title: "", content: "" });
+        return setInputs({ title: '', content: '' });
     }
 
     async function handelCreateNote(e) {
         e.preventDefault();
         const note = await notesServices.createNote(inputs);
         if (note) {
-            return navigate("/");
+            return navigate('/');
         }
     }
 
@@ -40,10 +40,12 @@ export default function Form() {
                 <div className="flex items-center justify-center text-[1.4rem]">
                     <span>✨</span>
                     <div>
-                        <div className="font-semibold px-2">Create a New Note</div>
+                        <div className="font-semibold px-2">
+                            Create a New Note
+                        </div>
                         <motion.hr
                             initial={{ width: 0 }}
-                            animate={{ width: "100%" }}
+                            animate={{ width: '100%' }}
                             transition={{ duration: 0.4 }}
                             className="border-[#c2a7a7]"
                         />

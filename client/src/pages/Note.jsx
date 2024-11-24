@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { notesServices } from "../dbServices/notesService.js";
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { notesServices } from '../dbServices/notesService.js';
 
 export default function Note() {
     const { noteId } = useParams();
@@ -10,8 +10,8 @@ export default function Note() {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const [inputs, setInputs] = useState({
-        title: "",
-        content: "",
+        title: '',
+        content: '',
     });
 
     async function handleChange(e) {
@@ -24,11 +24,15 @@ export default function Note() {
             setLoading(true);
             const data = await notesServices.getNote(noteId);
             console.log(data);
-            if (data && data?.message !== "NOTE_NOT_FOUND" && data?.message !== "INVALID_NOTE_ID") {
+            if (
+                data &&
+                data?.message !== 'NOTE_NOT_FOUND' &&
+                data?.message !== 'INVALID_NOTE_ID'
+            ) {
                 setInputs({ title: data.title, content: data.content });
                 setNote(data);
             } else {
-                navigate("/not-found");
+                navigate('/not-found');
             }
             setLoading(false);
         }
@@ -38,7 +42,7 @@ export default function Note() {
     async function handleDeleteNote() {
         const res = await notesServices.deleteNote(noteId);
         if (res) {
-            navigate("/");
+            navigate('/');
         }
     }
 
@@ -63,16 +67,24 @@ export default function Note() {
     return (
         <div className="h-full w-full overflow-scroll">
             {loading ? (
-                <div className="text-white flex items-start justify-center w-full h-full text-xl mt-10">Loading...</div>
+                <div className="text-white flex items-start justify-center w-full h-full text-xl mt-10">
+                    Loading...
+                </div>
             ) : (
                 Object.keys(note).length && (
                     // is note object empty
                     <div className="relative bg-[#fbc9c9] rounded-xl p-4 pb-[60px]">
                         {editing ? (
-                            <form onSubmit={handleEditNote} className="flex flex-col items-start justify-start gap-4">
+                            <form
+                                onSubmit={handleEditNote}
+                                className="flex flex-col items-start justify-start gap-4"
+                            >
                                 <div className="w-full h-full">
                                     <span className="text-[#e20606]">*</span>
-                                    <label htmlFor="title" className="font-semibold text-[1.15rem]">
+                                    <label
+                                        htmlFor="title"
+                                        className="font-semibold text-[1.15rem]"
+                                    >
                                         Title :
                                     </label>
                                     <input
@@ -89,7 +101,10 @@ export default function Note() {
 
                                 <div className="w-full h-full mb-2">
                                     <span className="text-[#e20606]">*</span>
-                                    <label htmlFor="content" className="font-semibold text-[1.15rem]">
+                                    <label
+                                        htmlFor="content"
+                                        className="font-semibold text-[1.15rem]"
+                                    >
                                         Content :
                                     </label>
                                     <textarea
@@ -125,8 +140,12 @@ export default function Note() {
                             </form>
                         ) : (
                             <div className="w-full flex flex-col items-center justify-center gap-4">
-                                <div className="text-[1.8rem] font-bold text-center">{inputs.title}</div>
-                                <div className="text-[1.3rem] text-center px-2">{inputs.content}</div>
+                                <div className="text-[1.8rem] font-bold text-center">
+                                    {inputs.title}
+                                </div>
+                                <div className="text-[1.3rem] text-center px-2">
+                                    {inputs.content}
+                                </div>
                             </div>
                         )}
 

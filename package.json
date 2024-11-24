@@ -1,0 +1,18 @@
+{
+  "name": "notes_app",
+  "version": "1.0.0",
+  "description": "**A Full Stack Application for Managing Daily Notes**  \r Seamlessly perform CRUD operations with modular, adaptable, and scalable software design.",
+  "main": "index.js",
+  "scripts": {
+    "client":"cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "nodemon": "^3.1.7"
+  }
+}

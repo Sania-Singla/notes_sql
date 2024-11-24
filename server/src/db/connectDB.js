@@ -1,5 +1,5 @@
-import mysql from "mysql2";
-import mongoose from "mongoose";
+import mysql from 'mysql2';
+import mongoose from 'mongoose';
 
 class DBconnection {
     constructor() {
@@ -17,16 +17,16 @@ class DBconnection {
         try {
             if (!this.connection) {
                 switch (process.env.DATABASE_TYPE) {
-                    case "sql": {
+                    case 'sql': {
                         await this.connectToMYSQL();
                         break;
                     }
-                    case "mongodb": {
+                    case 'mongodb': {
                         await this.connectToMongoDB();
                         break;
                     }
                     default: {
-                        throw new Error("Unsupported database type");
+                        throw new Error('Unsupported database type');
                     }
                 }
             }
@@ -49,7 +49,9 @@ class DBconnection {
 
             // Test the connection becuase it is returning a promise so it wont throw error until tested explictly 👇
             const conn = await this.connection.getConnection();
-            console.log(`Connected to mysql successfully, host: ${conn.config.host}`);
+            console.log(
+                `Connected to mysql successfully, host: ${conn.config.host}`
+            );
             conn.release();
         } catch (err) {
             return console.log("mysql didn't connected !!", err);
