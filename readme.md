@@ -76,6 +76,7 @@ Feel free to use it, modify it, and share it.
 Feel free to reach out for collaborations or suggestions!
 
 ### Connect with me:
-- ![LinkedIn][Sania-Singla](https://www.linkedin.com/in/sania-singla)
-- ![Discord](https://img.shields.io/badge/Discord-YourDiscordUsername-7289DA?style=flat&logo=discord&logoColor=white) [@Sania-Singla](https://discord.com/channels/@sania_singl)
-- ![Twitter](https://img.shields.io/badge/Twitter-%40YourTwitterHandle-1DA1F2?style=flat&logo=twitter&logoColor=white) [@Sania-Singla](https://x.com/sania_singla)
+- [![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo_2013.png)](https://www.linkedin.com/in/sania-singla) [Sania-Singla](https://www.linkedin.com/in/sania-singla)
+- [![Discord](https://upload.wikimedia.org/wikipedia/commons/6/6b/Discord_logo_2023.png)](https://discord.com/users/YourDiscordID) [@Sania-Singla](https://discord.com/users/YourDiscordID)
+- [![Twitter](https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_2021.svg)](https://x.com/sania_singla) [@Sania-Singla](https://x.com/sania_singla)
+
