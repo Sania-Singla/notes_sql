@@ -117,7 +117,7 @@ Feel free to use it, modify it, and share it.
 ## 🧑‍💻 Authors  
 **Sania**: Full Stack Developer and Designer of this project.  
 
-*✨Feel free to reach out for collaborations or suggestions!*
+*✨Feel free to reach out for collaborations or suggestions!✨*
 
 ### Connect with me:
 - **LinkedIn**: https://www.linkedin.com/in/sania-singla
