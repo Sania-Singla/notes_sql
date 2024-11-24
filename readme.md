@@ -9,16 +9,11 @@ This project is a robust **Full Stack Application** that empowers users to manag
 
 
 ## 🌟 Features  
-- **CRUD Operations**  
-  Perform **Create**, **Read**, **Update**, and **Delete** operations on notes with ease.  
-- **Pagination & Filtering**  
-  Efficiently browse large datasets with built-in pagination and advanced search functionality.  
-- **Database Agnosticism**  
-  Designed using interfaces to support seamless database migrations (currently implemented with **MySQL**).  
-- **Responsive Frontend**  
-  Developed with **React.js** and styled using **Tailwind CSS** for a modern and user-friendly interface.  
-- **Scalable Backend**  
-  Powered by **Node.js** and **Express.js** to handle API requests and database interactions efficiently.  
+- **CRUD Operations**: Perform **Create**, **Read**, **Update**, and **Delete** operations on notes with ease.  
+- **Pagination & Filtering**: Efficiently browse large datasets with built-in pagination and advanced search functionality.  
+- **Database Agnosticism**: Designed using interfaces to support seamless database migrations (currently implemented with **MySQL**).  
+- **Responsive Frontend**: Developed with **React.js** and styled using **Tailwind CSS** for a modern and user-friendly interface.  
+- **Scalable Backend**: Powered by **Node.js** and **Express.js** to handle API requests and database interactions efficiently.  
 
 
 ## 🛠️ Tech Stack  
