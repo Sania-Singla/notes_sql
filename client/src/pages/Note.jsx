@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { notesServices } from '../dbServices/notesService.js';
+import { Button } from '../components/button.jsx';
 
 export default function Note() {
     const { noteId } = useParams();
@@ -121,21 +122,18 @@ export default function Note() {
                                 </div>
 
                                 <div className="absolute bottom-4 right-4 flex items-center justify-center gap-4">
-                                    <button
+                                    <Button
                                         onClick={handleReset}
-                                        type="button"
-                                        className="bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] flex items-center justify-center shadow-sm shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
+                                        btnText="Cancel"
+                                        width="100px"
+                                    />
+                                    <Button
                                         disabled={disabled}
                                         onMouseOver={handleMouseOver}
                                         type="submit"
-                                        className="disabled:cursor-not-allowed bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] flex items-center justify-center shadow-sm shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
-                                    >
-                                        Update
-                                    </button>
+                                        btnText="Update"
+                                        width="100px"
+                                    />
                                 </div>
                             </form>
                         ) : (
@@ -151,19 +149,17 @@ export default function Note() {
 
                         {!editing && (
                             <div className="absolute bottom-4 right-4 flex items-center justify-center gap-4">
-                                <button
+                                <Button
+                                    btnText="Edit"
                                     onClick={() => setEditing(true)}
-                                    className="bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] shadow-sm flex items-center justify-center shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
-                                >
-                                    Edit
-                                </button>
+                                    width="100px"
+                                />
 
-                                <button
+                                <Button
                                     onClick={handleDeleteNote}
-                                    className="bg-[#cd2121] rounded-full text-lg w-[80px] h-[30px] flex items-center justify-center shadow-sm shadow-black hover:border-[#141414] border-transparent border-[0.01rem] font-medium"
-                                >
-                                    Delete
-                                </button>
+                                    btnText="Delete"
+                                    width="100px"
+                                />
                             </div>
                         )}
                     </div>

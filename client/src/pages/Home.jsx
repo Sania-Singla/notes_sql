@@ -68,7 +68,7 @@ export default function Home() {
     ));
 
     return (
-        <div className="py-8 px-5 h-full w-full flex flex-col gap-10 items-center justify-start">
+        <div className="px-5 py-8 h-full w-full flex flex-col gap-10 items-center justify-start">
             <div className="text-center flex sm:flex-row flex-col items-center justify-between gap-10 w-full">
                 <div className="flex items-center justify-start gap-3 w-full">
                     {/* search icon */}
@@ -131,7 +131,7 @@ export default function Home() {
                     Loading...
                 </div>
             ) : (
-                <div className="w-full px-[5px] h-full overflow-y-scroll overflow-x-hidden">
+                <div className="w-full px-[5px] overflow-y-scroll">
                     {notes?.length > 0 ? (
                         notes.length > 2 ? (
                             <div className="w-full grid auto-rows-auto grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">

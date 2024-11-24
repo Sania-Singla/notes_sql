@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { notesServices } from '../dbServices/notesService.js';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Button } from '../components/button';
 
 export default function Form() {
     const navigate = useNavigate();
@@ -87,21 +88,19 @@ export default function Form() {
                 </div>
 
                 <div className="w-[270px] flex items-center justify-center gap-8 mt-4">
-                    <button
+                    <Button
                         type="button"
                         onClick={handleReset}
-                        className="flex items-center justify-center text-black disabled:cursor-not-allowed bg-[#cd2121] rounded-full w-full h-[34px] text-[1.25rem] shadow-sm shadow-slate-800 hover:border-[#b5b4b4] border-transparent border-[0.01rem] font-semibold"
-                    >
-                        Reset
-                    </button>
-                    <button
+                        btnText="Reset"
+                        width="110px"
+                    />
+                    <Button
                         type="submit"
                         disabled={disabled}
                         onMouseOver={handleMouseOver}
-                        className="flex items-center justify-center text-black disabled:cursor-not-allowed bg-[#cd2121] rounded-full w-full h-[34px] text-[1.25rem] shadow-sm shadow-slate-800 hover:border-[#b5b4b4] border-transparent border-[0.01rem] font-semibold"
-                    >
-                        Create
-                    </button>
+                        btnText="Create"
+                        width="110px"
+                    />
                 </div>
             </form>
         </div>

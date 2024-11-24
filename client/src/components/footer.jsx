@@ -40,13 +40,13 @@ export function Footer() {
         </div>
     ));
     return (
-        <div className="text-[#c7c7c7] overflow-x-scroll shadow-2xl shadow-">
+        <div className="text-[#c7c7c7] overflow-x-scroll">
             <div className="border-t-[0.01rem] border-t-[#9a9a9a]" />
-            <div className="flex items-center justify-evenly gap-4 py-2">
+            <div className="flex items-center justify-between gap-4 py-2 px-10">
                 <div className="text-xs text-nowrap">
                     © 2024 notes manager. All rights reserved.
                 </div>
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center justify-end gap-[5%] flex-1">
                     {constributors}
                 </div>
             </div>
