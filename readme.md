@@ -108,7 +108,7 @@ This project is licensed under the MIT License.
 Feel free to use it, modify it, and share it.
 
 
-## 🧑‍💻 Authors  
+## 🧑‍💻 Owner  
 **Sania**: Full Stack Developer and Designer of this project.  
 
 *✨Feel free to reach out for collaborations or suggestions!*
