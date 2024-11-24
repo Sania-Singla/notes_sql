@@ -79,6 +79,10 @@ Feel free to reach out for collaborations or suggestions!
 **Sania**: Full Stack Developer and Designer of this project.  
 Feel free to reach out for collaborations or suggestions!
 
+## 🧑‍💻 Authors  
+**Sania**: Full Stack Developer and Designer of this project.  
+Feel free to reach out for collaborations or suggestions!
+
 ### Connect with me:
 - [LinkedIn](https://www.linkedin.com/in/sania-singla) ![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo_2013.png)
 - [Discord](https://discord.com/users/YourDiscordID) ![Discord](https://upload.wikimedia.org/wikipedia/commons/6/6b/Discord_logo_2023.png)
