@@ -52,12 +52,12 @@ Make sure you have the following installed:
 
 
 ## 🛡️ Security and Best Practices
-✅ Store passwords and sensitive data securely in environment variables.
-✅ Validate all API routes to ensure data integrity.
-✅ Use parameterized queries to prevent SQL injection attacks.
-✅ Apply HTTPS for secure communication.
-✅ Regularly update dependencies to patch vulnerabilities.
-✅ Use robust logging and monitoring tools to track errors and access patterns.
+✅ Store passwords and sensitive data securely in environment variables.<br>
+✅ Validate all API routes to ensure data integrity.<br>
+✅ Use parameterized queries to prevent SQL injection attacks.<br>
+✅ Apply HTTPS for secure communication.<br>
+✅ Regularly update dependencies to patch vulnerabilities.<br>
+✅ Use robust logging and monitoring tools to track errors and access patterns.<br>
 
 ## 🚀 Future Enhancements
 Integration with other databases (e.g., MongoDB, PostgreSQL).
