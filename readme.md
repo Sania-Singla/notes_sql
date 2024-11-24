@@ -85,15 +85,15 @@ Feel free to reach out for collaborations or suggestions!
 
 <!-- LinkedIn Icon -->
 <a href="https://www.linkedin.com/in/sania-singla" target="_blank">
-  <i class="fa-brands fa-linkedin"></i>
+  <i class="fa-brands fa-linkedin" style="font-size: 30px; color: white;"></i>
 </a>
 
 <!-- Discord Icon -->
 <a href="https://discord.com/channels/@sania_singla" target="_blank">
-  <i class="fa-brands fa-discord"></i>
+  <i class="fa-brands fa-discord" style="font-size: 30px; color: white;"></i>
 </a>
 
 <!-- Twitter Icon -->
 <a href="https://x.com/sania_singla" target="_blank">
-  <i class="fa-brands fa-square-x-twitter"></i>
+<i class="fa-brands fa-square-x-twitter" style="font-size: 30px; color: white;"></i>
 </a>
