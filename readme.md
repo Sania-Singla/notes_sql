@@ -76,6 +76,6 @@ Feel free to use it, modify it, and share it.
 Feel free to reach out for collaborations or suggestions!
 
 ### Connect with me:
-- **LinkedIn**: [Sania-Singla](https://www.linkedin.com/in/sania-singla)
-- **Discord**: [@Sania-Singla](https://discord.com/users/YourDiscordID)
-- **Twitter**: [@Sania-Singla](https://x.com/sania_singla)
+- **LinkedIn**: (https://www.linkedin.com/in/sania-singla)
+- **Discord**: (https://discord.com/users/YourDiscordID)
+- **Twitter**: (https://x.com/sania_singla)
