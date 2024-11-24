@@ -52,12 +52,10 @@ Make sure you have the following installed:
 
 
 ## 🛡️ Security and Best Practices
-✅ Store passwords and sensitive data securely in environment variables.<br>
-✅ Validate all API routes to ensure data integrity.<br>
-✅ Use parameterized queries to prevent SQL injection attacks.<br>
-✅ Apply HTTPS for secure communication.<br>
-✅ Regularly update dependencies to patch vulnerabilities.<br>
-✅ Use robust logging and monitoring tools to track errors and access patterns.<br>
+-  Store passwords and sensitive data securely in environment variables.
+- Validate all API routes to ensure data integrity.
+- Use parameterized queries to prevent SQL injection attacks.
+- Regularly update dependencies to patch vulnerabilities.
 
 ## 🚀 Future Enhancements
 Integration with other databases (e.g., MongoDB, PostgreSQL).
@@ -73,7 +71,11 @@ Contributions are welcome! Feel free to submit issues or pull requests to improv
 This project is licensed under the MIT License.
 Feel free to use it, modify it, and share it.
 
-## 🧑‍💻 Authors
-[Sania]: Full Stack Developer and Designer of this project.
+## 🧑‍💻 Authors  
+**Sania**: Full Stack Developer and Designer of this project.  
 Feel free to reach out for collaborations or suggestions!
 
+### Connect with me:
+- ![LinkedIn](https://img.shields.io/badge/LinkedIn-YourLinkedInProfile-0A66C2?style=flat&logo=linkedin&logoColor=white) [Your LinkedIn Profile](https://www.linkedin.com/in/sania-singla)
+- ![Discord](https://img.shields.io/badge/Discord-YourDiscordUsername-7289DA?style=flat&logo=discord&logoColor=white) [YourDiscordUsername](https://discord.com/channels/@sania_singl)
+- ![Twitter](https://img.shields.io/badge/Twitter-%40YourTwitterHandle-1DA1F2?style=flat&logo=twitter&logoColor=white) [@YourTwitterHandle](https://x.com/sania_singla)
