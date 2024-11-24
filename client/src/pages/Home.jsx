@@ -4,6 +4,7 @@ import { notesServices } from '../dbServices/notesService.js';
 import { icons } from '../assets/icons.jsx';
 import { motion } from 'framer-motion';
 import formatTimeStamp from '../utils/formatTimeStamp.js';
+import { Button } from '../components/button.jsx';
 
 export default function Home() {
     const [notes, setNotes] = useState([]);
@@ -57,25 +58,26 @@ export default function Home() {
                 {formatTimeStamp(note.updatedAt)}
             </div>
             <div className="mt-4 flex items-center justify-start">
-                <button
+                <Button
                     onClick={() => navigate(`/note/${note.noteId}`)}
-                    className="bg-[#cd2121] rounded-full h-[32px] flex items-center justify-center w-[125px] text-lg shadow-md shadow-black hover:border-[#b5b4b4] border-transparent border-[0.01rem] font-semibold"
-                >
-                    get the note
-                </button>
+                    btnText="Read more"
+                    btnIcon={icons.arrow}
+                />
             </div>
         </div>
     ));
 
     return (
-        <div className="h-full w-full flex flex-col gap-10 items-center justify-start">
+        <div className="py-8 px-5 h-full w-full flex flex-col gap-10 items-center justify-start">
             <div className="text-center flex sm:flex-row flex-col items-center justify-between gap-10 w-full">
-                <div className="flex items-center justify-start gap-2 w-full">
+                <div className="flex items-center justify-start gap-3 w-full">
+                    {/* search icon */}
                     <div>
-                        <div className="size-[18px] fill-[#b7b1b1]">
+                        <div className="size-[22px] fill-[#b7b1b1] hover:fill-[#cd2121]">
                             {icons.search}
                         </div>
                     </div>
+                    {/* search input */}
                     <div className="max-w-[600px] w-full">
                         <form
                             onSubmit={handleSearch}
@@ -89,7 +91,7 @@ export default function Home() {
                                     onChange={(e) => {
                                         setQuery(e.target.value);
                                     }}
-                                    className="text-lg text-white placeholder:text-lg w-full bg-transparent placeholder-[#908c8c] outline-none "
+                                    className="text-lg text-white w-full bg-transparent placeholder-[#817d7d] outline-none"
                                 />
                                 <motion.hr
                                     initial={{ width: 0 }}
@@ -107,29 +109,23 @@ export default function Home() {
                     </div>
                 </div>
 
+                {/* create/delete buttons */}
                 <div className=" flex items-center justify-center gap-4">
-                    <button
+                    <Button
                         onClick={() => navigate('/form')}
-                        className="flex items-center justify-center gap-2 bg-[#cd2121] border-[0.01rem] border-transparent hover:border-[#b5b4b4] shadow-sm shadow-slate-500 rounded-full w-[125px] h-[33px] text-md font-semibold"
-                    >
-                        Create One
-                        <div className="size-[17px] fill-black">
-                            {icons.create}
-                        </div>
-                    </button>
+                        btnText="Create One"
+                        btnIcon={icons.create}
+                    />
 
-                    <button
+                    <Button
                         onClick={handleDeleteNotes}
-                        className="flex items-center justify-center gap-2 bg-[#cd2121] border-[0.01rem] border-transparent hover:border-[#b5b4b4] rounded-full shadow-sm shadow-slate-500 w-[120px] h-[33px] text-md font-semibold"
-                    >
-                        Delete All
-                        <div className="size-[17px] fill-black">
-                            {icons.delete}
-                        </div>
-                    </button>
+                        btnText="Delete All"
+                        btnIcon={icons.delete}
+                    />
                 </div>
             </div>
 
+            {/* notes */}
             {loading ? (
                 <div className="text-white text-xl text-center w-full mt-10">
                     Loading...
@@ -137,12 +133,12 @@ export default function Home() {
             ) : (
                 <div className="w-full px-[5px] h-full overflow-y-scroll overflow-x-hidden">
                     {notes?.length > 0 ? (
-                        notes.length <= 2 ? (
-                            <div className="w-full grid auto-rows-auto grid-cols-[repeat(auto-fit,300px)] gap-6">
+                        notes.length > 2 ? (
+                            <div className="w-full grid auto-rows-auto grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
                                 {notesElements}
                             </div>
                         ) : (
-                            <div className="w-full grid auto-rows-auto grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
+                            <div className="w-full grid auto-rows-auto grid-cols-[repeat(auto-fit,300px)] gap-6">
                                 {notesElements}
                             </div>
                         )

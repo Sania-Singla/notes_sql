@@ -1,13 +1,9 @@
-const LIMIT = 10;
 import SANIAIMAGE from '../Assets/images/sania.jpg';
 import VASUNDHRAIMAGE from '../Assets/images/vasundhra.jpg';
-// import LOGO from '../Assets/images/logo.jpg';
 
 const CONTRIBUTORS = [
     {
         image: SANIAIMAGE,
-        role: 'Lead Developer',
-        bio: 'Full-stack developer passionate about creating beautiful, scalable applications',
         name: 'Sania Singla',
         socials: {
             linkedIn: 'https://www.linkedin.com/in/sania-singla',
@@ -19,8 +15,6 @@ const CONTRIBUTORS = [
     },
     {
         image: VASUNDHRAIMAGE,
-        role: 'Modularity Handler',
-        bio: 'Breaking big ideas into small, reusable components.',
         name: 'Vasundhra Gupta',
         socials: {
             linkedIn: 'https://www.linkedin.com/in/vasundhra-gupta-764713291',
@@ -32,4 +26,4 @@ const CONTRIBUTORS = [
     },
 ];
 
-export { LIMIT, CONTRIBUTORS };
+export { CONTRIBUTORS };
