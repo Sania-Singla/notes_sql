@@ -82,3 +82,18 @@ Feel free to reach out for collaborations or suggestions!
 
 
 
+
+<!-- LinkedIn Icon -->
+<a href="https://www.linkedin.com/in/sania-singla" target="_blank">
+  <i class="fab fa-linkedin" style="font-size: 30px; color: black;"></i>
+</a>
+
+<!-- Discord Icon -->
+<a href="https://discord.com/users/YourDiscordID" target="_blank">
+  <i class="fab fa-discord" style="font-size: 30px; color: black;"></i>
+</a>
+
+<!-- Twitter Icon -->
+<a href="https://x.com/sania_singla" target="_blank">
+  <i class="fab fa-twitter" style="font-size: 30px; color: black;"></i>
+</a>
