@@ -1,7 +1,6 @@
-import SANIAIMAGE from '../Assets/images/sania.jpg';
-import VASUNDHRAIMAGE from '../Assets/images/vasundhra.jpg';
+import SANIAIMAGE from '../Assets/sania.jpg';
 
-const CONTRIBUTORS = [
+const OWNER = [
     {
         image: SANIAIMAGE,
         name: 'Sania Singla',
@@ -13,17 +12,6 @@ const CONTRIBUTORS = [
             instagram: 'https://www.instagram.com/sania__singla',
         },
     },
-    {
-        image: VASUNDHRAIMAGE,
-        name: 'Vasundhra Gupta',
-        socials: {
-            linkedIn: 'https://www.linkedin.com/in/vasundhra-gupta-764713291',
-            discord: '',
-            gitHub: 'https://github.com/Vasundhra-Gupta',
-            threads: '',
-            instagram: 'https://www.instagram.com/vasundhragupta962',
-        },
-    },
 ];
 
-export { CONTRIBUTORS };
+export { OWNER };

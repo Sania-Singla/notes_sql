@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { CONTRIBUTORS } from '../constants/constants';
+import { OWNER } from '../constants/constants';
 import { icons } from '../assets/icons.jsx';
 
 export function Footer() {
-    const constributors = CONTRIBUTORS.map((contributor) => (
+    const constributors = OWNER.map((contributor) => (
         <div
             key={contributor.name}
             className="flex items-center justify-center gap-3"
