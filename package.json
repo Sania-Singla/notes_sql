@@ -6,9 +6,9 @@
     "scripts": {
         "client": "cd client && npm run dev",
         "server": "cd server && npm run dev",
-        "dev": "$SET NODE_ENV=development && concurrently \"npm run server\" \"npm run client\"",
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
         "build": "npm i --production=false && npm i --production=false --prefix client && npm i --production=false --prefix server && npm run build --prefix client",
-        "start": "$SET NODE_ENV=production && npm start --prefix server"
+        "start": "npm start --prefix server"
     },
     "keywords": [],
     "author": "",
