@@ -1,4 +1,4 @@
-import SANIAIMAGE from '../Assets/sania.jpg';
+import SANIAIMAGE from '../assets/sania.jpg';
 
 const OWNER = [
     {
