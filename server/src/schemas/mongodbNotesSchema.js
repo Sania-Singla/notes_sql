@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-const notesSchema = new mongoose.Schema(
+const notesSchema = new Schema(
     {
         noteId: {
             type: String,
@@ -21,4 +21,4 @@ const notesSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-export const Note = mongoose.model('Note', notesSchema);
+export const Note = model('Note', notesSchema);
